@@ -8,6 +8,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+
+// Default route
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
 app.use("/api/contacts", require("./routes/contactRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use(errorHandler);
